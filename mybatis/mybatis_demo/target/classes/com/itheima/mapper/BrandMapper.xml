@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--
+    namespace: 名称空间
+-->
+<mapper namespace="com.itheima.mapper.BrandMapper">
+
+
+    <!--1. 使用别名，每一个字段都要设置别名，不方便-->
+    <!--    <select id="selectAll" resultType="com.itheima.pojo.Brand">-->
+    <!--        select id, brand_name as brandName, company_name as companyName, ordered, description, status-->
+    <!--        from tb_brand;-->
+    <!--    </select>-->
+
+    <!-- 2.   使用sql片段，如果只需要查询几个字段，要写好几个sql片段，不方便-->
+    <!--    <sql id="brand_column">-->
+    <!--        id, brand_name as brandName, company_name as companyName, ordered, description, status-->
+    <!--    </sql>-->
+    <!--    <select id="selectAll" resultType="com.itheima.pojo.Brand">-->
+    <!--        select <include refid="brand_column"></include> from tb_brand;-->
+    <!--    </select>-->
+
+    <!--3. -->
+    <resultMap id="brandResultMap" type="com.itheima.pojo.Brand">
+        <!--  id完成主键映射   <id column="" property=""/>  -->
+        <result column="company_name" property="companyName"/>
+        <result column="brand_name" property="brandName"/>
+    </resultMap>
+
+
+
+
+    <select id="selectAll" resultMap="brandResultMap">
+        select *
+        from tb_brand;
+    </select>
+
+    <!-- 条件查询-->
+    <!--
+        参数占位符：
+        1. #{}: 替代成？ ，相当于prepareStatement ，防止sql注入
+        2. ${}: 拼接sql，会发生sql注入
+    -->
+    <select id="selectById" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        where id = #{id};
+    </select>
+
+    <select id="selectByCondition1" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        <where>
+            <if test="status !=null">
+                status = #{status}
+            </if>
+            <if test="companyName!=null and companyName !=''">
+                and company_name like #{companyName}
+            </if>
+            <if test="brandName!=null and brandName !=''">
+                and brand_name like #{brandName}
+            </if>
+        </where>
+
+    </select>
+
+
+    <select id="selectByCondition2" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        where status = #{status}
+          and company_name like #{companyName}
+          and brand_name like #{brandName}
+    </select>
+
+
+    <select id="selectByCondition3" resultMap="brandResultMap">
+        select *
+        from tb_brand
+        where status = #{status}
+          and company_name like #{companyName}
+          and brand_name like #{brandName}
+    </select>
+
+
+    <select id="selectByConditionSingle" resultMap="brandResultMap">
+        select * from tb_brand
+        <where>
+            <choose>
+                <when test="status!=null">
+                    status = #{status}
+                </when>
+                <when test="companyName!=null and companyName !=''">
+                    company_name like #{companyName}
+                </when>
+                <when test="brandName!=null and brandName !=''">
+                    brand_name like #{brandName}
+                </when>
+            </choose>
+        </where>
+    </select>
+
+
+    <insert id="add" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_brand (brand_name, company_name, ordered, description, status)
+        VALUES (#{brandName}, #{companyName}, #{ordered}, #{description}, #{status})
+    </insert>
+
+
+    <update id="update">
+        update tb_brand
+        <set>
+            <if test="brandName!=null and brandName !=''">
+                brand_name=#{brandName},
+            </if>
+            <if test="companyName!=null and companyName !=''">
+                company_name=#{companyName},
+            </if>
+            <if test="ordered!=null ">
+                ordered=#{ordered},
+            </if>
+            <if test="description!=null ">
+                description=#{description},
+            </if>
+            <if test="status!=null ">
+                status=#{status}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+
+
+    <delete id="deleteById">
+        delete
+        from tb_brand
+        where id = #{id};
+    </delete>
+
+
+    <delete id="deleteByIds">
+        delete from tb_brand
+        where id in
+        <foreach collection="ids" item="id" separator="," open="(" close=");">
+            #{id}
+        </foreach>
+    </delete>
+
+
+</mapper>

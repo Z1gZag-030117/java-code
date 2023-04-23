@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="se">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/Desktop/，/java/常用jar包/se/guava-19.0.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/，/java/常用jar包/se/hamcrest-2.1.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/，/java/常用jar包/se/junit-4.12.jar!/" />
+      <root url="file://$USER_HOME$/Desktop/，/java/常用jar包/se" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Desktop/，/java/常用jar包/se" recursive="false" />
+  </library>
+</component>

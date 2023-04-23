@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       ">
+
+    <context:component-scan base-package="com.zz"/>
+    <aop:aspectj-autoproxy/>
+
+
+    <!-- 配置目标类   -->
+    <bean class="com.zz.service.impl.UserServiceImpl" id="userService"/>
+    <!--配置的通知类-->
+    <bean class="com.zz.advice.MyAdvice" id="myAdvice"/>
+    <!-- 事务增强aop配置  -->
+    <aop:config>
+        <!-- 配置切点表达式，目的是指定那些方法被增强       -->
+        <aop:pointcut id="myPointcut" expression="execution(void com.zz.service.impl.UserServiceImpl.show1())"/>
+        <!-- 配置织入 ，目的是要执行那些切点和那些通知结合       -->
+        <aop:aspect ref="myAdvice">
+            <!--前置通知-->
+            <!--            <aop:before method="beforeAdvice" pointcut-ref="myPointcut"/>-->
+            <!--后置通知-->
+            <!--            <aop:after-returning method="afterAdvice" pointcut-ref="myPointcut"/>-->
+            <!--环绕通知-->
+            <!--            <aop:around method="around" pointcut-ref="myPointcut"/>-->
+            <!--异常通知-->
+            <!--            <aop:after-throwing method="afterThrowingAdvice" pointcut-ref="myPointcut"/>-->
+            <!--最终通知-->
+            <!--            <aop:after method="afterThrowingAdvice" pointcut-ref="myPointcut"/>-->
+        </aop:aspect>
+    </aop:config>
+
+
+    <!--    <bean class="com.zz.processor.MockAopBeanPostProcessor" id="processor"/>-->
+
+</beans>

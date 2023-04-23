@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       ">
+
+    <context:component-scan base-package="com.zz"/>
+    <context:property-placeholder location="jdbc.properties"/>
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zz.mapper"/>
+    </bean>
+
+<!--    配置平台事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+<!--&lt;!&ndash;    配置spring提供的Advice&ndash;&gt;-->
+<!--    <tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+<!--        <tx:attributes>-->
+<!--                &lt;!&ndash;-->
+<!--                    配置不同方法的事务属性-->
+<!--                    name：方法名称   *代表通配符   添加操作addUser，addAccount，addOrder -》 add*-->
+<!--                    isolation：事物的隔离级别-->
+<!--                    timeout：超时时间 默认-1-->
+<!--                    read-only：是否只读，查询状态才设置只读-->
+<!--                    propagation:事务的传播行为，解决业务方法调用业务方法（事务嵌套问题）-->
+<!--                &ndash;&gt;-->
+<!--            <tx:method name="transferMoney" isolation="READ_COMMITTED" timeout="3" read-only="false" propagation="REQUIRED" />-->
+<!--        </tx:attributes>-->
+<!--    </tx:advice>-->
+
+
+<!--&lt;!&ndash;事务增强的aop&ndash;&gt;-->
+<!--    <aop:config>-->
+<!--&lt;!&ndash;        配置切入点表达式&ndash;&gt;-->
+<!--        <aop:pointcut id="txPointcut"   expression="execution(* com.zz.service.impl.*.*(..))"/>-->
+<!--&lt;!&ndash;        配置织入关系，通知advice-ref引入spring提供的&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>-->
+<!--    </aop:config>-->
+
+
+<!--    事务的自动代理-->
+    <tx:annotation-driven/>
+
+
+</beans>

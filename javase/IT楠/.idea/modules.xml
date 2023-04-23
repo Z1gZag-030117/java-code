@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$USER_HOME$/Desktop/，/java/maven_demo/0.iml" filepath="$USER_HOME$/Desktop/，/java/maven_demo/0.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ChatServer/ChatServer.iml" filepath="$PROJECT_DIR$/ChatServer/ChatServer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/IT楠.iml" filepath="$PROJECT_DIR$/IT楠.iml" />
+      <module fileurl="file://$PROJECT_DIR$/connection-pool/connection-pool.iml" filepath="$PROJECT_DIR$/connection-pool/connection-pool.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/，/java/maven_demo/maven_demo.iml" filepath="$USER_HOME$/Desktop/，/java/maven_demo/maven_demo.iml" />
+      <module fileurl="file://$USER_HOME$/Desktop/，/java/mybatis_demo/mybatis_demo.iml" filepath="$USER_HOME$/Desktop/，/java/mybatis_demo/mybatis_demo.iml" />
+    </modules>
+  </component>
+</project>

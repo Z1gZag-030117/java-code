@@ -1,0 +1,22 @@
+#server:
+#  port: 81
+country: China
+
+users:
+  name: zz
+  age: 20
+
+hobbies:
+  - game
+  - music
+  - sleep
+
+badeDir: c\:win10
+
+tempDir: ${badeDir}\temp
+
+datasource:
+  driver: com.mysql.jdbc.Driver
+  url: jdbc:mysql://localhost/tb_user
+  username: root
+  password: 123456

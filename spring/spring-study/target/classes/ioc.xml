@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+
+<!--    <context:property-placeholder/>
+<context:property-placeholder>的作用是向Spring容器中注入一个属性占位解析器，
+用来处理BeanDefinition中的各种占位符，用配置文件的信息替换占位符。
+这是个自定义标签，Spring会使用PropertyPlaceholderBeanDefinitionParser解析它。
+-->
+
+
+
+<!--    <mvc:annotation-driven/>
+Spring 3.0.x中使用了mvc:annotation-driven后，默认会帮我们注册默认处理请求，参数和返回值的类，其中最主要的两个类：DefaultAnnotationHandlerMapping 和 AnnotationMethodHandlerAdapter ，分别为HandlerMapping的实现类和HandlerAdapter的实现类，从3.1.x版本开始对应实现类改为了RequestMappingHandlerMapping和RequestMappingHandlerAdapter。
+
+HandlerMapping的实现类的作用
+实现类RequestMappingHandlerMapping，它会处理@RequestMapping 注解，并将其注册到请求映射表中。
+
+HandlerAdapter的实现类的作用
+实现类RequestMappingHandlerAdapter，则是处理请求的适配器，确定调用哪个类的哪个方法，并且构造方法参数，返回值。
+
+当配置了mvc:annotation-driven/后，Spring就知道了我们启用注解驱动。然后Spring通过context:component-scan/标签的配置，会自动为我们将扫描到的@Component，@Controller，@Service，@Repository等注解标记的组件注册到工厂中，来处理我们的请求。
+
+-->
+
+
+    <!--    <bean id="userDaoImpl" class="com.zz.UserDaoImplImpl">-->
+    <!--        &lt;!&ndash; collaborators and configuration for this bean go here &ndash;&gt;-->
+    <!--    </bean>-->
+
+    <!--    <bean name="userService" class="com.zz.UserService"-->
+    <!--          factory-method="create"/>-->
+
+    <!--    <bean name="userDaoImpl" factory-bean="userService"-->
+    <!--          factory-method="create2"/>-->
+
+    <bean name="userDaoImpl" class="com.zz.UserDaoImpl"/>
+    <bean name="addressDao" class="com.zz.AddressDao"/>
+
+
+    <!--    <bean name="userService" class="com.zz.UserService">-->
+    <!--        <constructor-arg ref="userDaoImpl"/>-->
+    <!--        <constructor-arg ref="addressDao"/>-->
+    <!--    </bean>-->
+
+<!--    <bean name="userService" class="com.zz.UserService">-->
+<!--        <property name="userDaoImpl" ref="userDaoImpl"/>-->
+<!--        <property name="addressDao" ref="addressDao"/>-->
+<!--    </bean>-->
+
+    <!--    <bean id="girl" class="com.zz.Girl">-->
+    <!--        <constructor-arg name="name" value="sn"/>-->
+    <!--    </bean>-->
+
+    <bean id="girl" class="com.zz.Girl" lazy-init="true">
+        <constructor-arg name="name" value="sn"/>
+        <constructor-arg name="age" value="20"/>
+    </bean>
+
+
+    <!-- more bean definitions go here -->
+
+</beans>

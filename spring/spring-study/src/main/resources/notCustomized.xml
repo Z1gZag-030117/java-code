@@ -1,0 +1,30 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+
+
+        <bean id="clazz" class="java.lang.Class" factory-method="forName">
+            <constructor-arg name="className" value="com.mysql.jdbc.Driver"/>
+        </bean>
+
+        <bean id="connection" class="java.sql.DriverManager" factory-method="getConnection" scope="prototype">
+            <constructor-arg name="url" value="jdbc:mysql://localhost:3306/db1"/>
+            <constructor-arg name="user" value="root"/>
+            <constructor-arg name="password" value="123456"/>
+        </bean>
+
+    <bean id="simplyDateFormat" class="java.text.SimpleDateFormat">
+        <constructor-arg name="pattern" value="yyyy-MM-dd HH:mm:ss"/>
+    </bean>
+
+    <bean id="date" factory-bean="simplyDateFormat" factory-method="parse">
+        <constructor-arg name="source" value="2023-12-1 12:00:00"/>
+    </bean>
+
+
+
+</beans>

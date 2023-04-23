@@ -1,0 +1,13 @@
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:14:42:11 +0800] "GET /web_demo HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:14:42:11 +0800] "GET /web_demo/ HTTP/1.1" 404 969 http-bio-8080-exec-3 11
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:14:42:12 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:14:42:22 +0800] "GET /web_demo/demo1 HTTP/1.1" 200 - http-bio-8080-exec-5 1
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:21:39 +0800] "GET /web_demo HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:21:39 +0800] "GET /web_demo/ HTTP/1.1" 404 969 http-bio-8080-exec-3 10
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:21:39 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:22:17 +0800] "GET /web_demo HTTP/1.1" 302 - http-bio-8080-exec-1 0
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:22:17 +0800] "GET /web_demo/ HTTP/1.1" 404 969 http-bio-8080-exec-3 9
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:22:17 +0800] "GET /favicon.ico HTTP/1.1" 404 - http-bio-8080-exec-4 0
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:22:24 +0800] "GET /web_demo/demo2 HTTP/1.1" 200 - http-bio-8080-exec-5 1
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:24:55 +0800] "GET /web_demo/a.html HTTP/1.1" 200 243 http-bio-8080-exec-7 3
+0:0:0:0:0:0:0:1 - - [14/Feb/2023:16:24:57 +0800] "POST /web_demo/demo2 HTTP/1.1" 200 - http-bio-8080-exec-9 1

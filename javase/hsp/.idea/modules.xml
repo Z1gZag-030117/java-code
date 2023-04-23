@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../ajax-demo/ajax-demo.iml" filepath="$PROJECT_DIR$/../ajax-demo/ajax-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../brand-demo/brand-demo.iml" filepath="$PROJECT_DIR$/../brand-demo/brand-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../filter-demo/filter-demo.iml" filepath="$PROJECT_DIR$/../filter-demo/filter-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/hsp.iml" filepath="$PROJECT_DIR$/hsp.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../jsp_demo/jsp_demo.iml" filepath="$PROJECT_DIR$/../jsp_demo/jsp_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../maven_demo/maven_demo.iml" filepath="$PROJECT_DIR$/../maven_demo/maven_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mybatis-study/mybatis-01/mybatis-01.iml" filepath="$PROJECT_DIR$/../mybatis-study/mybatis-01/mybatis-01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../资料（陆续更新）/课程代码/mybatis-plus-study/mybatis-plus-study.iml" filepath="$PROJECT_DIR$/../资料（陆续更新）/课程代码/mybatis-plus-study/mybatis-plus-study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mybatis-study/mybatis-study.iml" filepath="$PROJECT_DIR$/../mybatis-study/mybatis-study.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../mybatis_demo/mybatis_demo.iml" filepath="$PROJECT_DIR$/../mybatis_demo/mybatis_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tomcat_demo1/tomcat_demo1.iml" filepath="$PROJECT_DIR$/../tomcat_demo1/tomcat_demo1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../tomcat_demo2/tomcat_demo2.iml" filepath="$PROJECT_DIR$/../tomcat_demo2/tomcat_demo2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../web_demo/web_demo.iml" filepath="$PROJECT_DIR$/../web_demo/web_demo.iml" />
+    </modules>
+  </component>
+</project>

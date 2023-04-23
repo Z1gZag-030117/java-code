@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="guava-19.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../常用jar包/se/guava-19.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../常用jar包/se/hamcrest-2.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/../常用jar包/se/junit-4.12.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

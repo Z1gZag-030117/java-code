@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../spring-aop-test1/spring-aop-test1.iml" filepath="$PROJECT_DIR$/../spring-aop-test1/spring-aop-test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-trans-test/spring-trans-test.iml" filepath="$PROJECT_DIR$/../spring-trans-test/spring-trans-test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../spring-webmvc-test1/spring-webmvc-test1.iml" filepath="$PROJECT_DIR$/../spring-webmvc-test1/spring-webmvc-test1.iml" />
+      <module fileurl="file://$PROJECT_DIR$/spring_ioc_test02.iml" filepath="$PROJECT_DIR$/spring_ioc_test02.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd
+       http://www.springframework.org/schema/tx
+       http://www.springframework.org/schema/tx/spring-tx.xsd
+       ">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="com.zz.pojo"/>
+
+<!--    <bean class="com.zz.pojo.Cat" id="cat"/>-->
+<!--    <bean class="com.zz.pojo.Dog" id="dog"/>-->
+<!--    <bean class="com.zz.pojo.Dog" id="dog2"/>-->
+
+<!--    <bean class="com.zz.pojo.User" id="user" />-->
+
+    <bean class="com.zz.service.impl.UserServiceImpl" id="userService"/>
+    <bean class="com.zz.log.BeforeLog" id="beforeLog"/>
+    <bean class="com.zz.log.AfterLog" id="afterLog"/>
+
+    <bean class="com.zz.config.AnnotationPointcut" id="annotationPointcut"/>
+    <aop:aspectj-autoproxy/>
+
+
+<!--    配置切入点-->
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.zz.service.impl.UserServiceImpl.add(..))"/>-->
+<!--        <aop:advisor advice-ref="beforeLog" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+
+<!--    <aop:config>-->
+<!--        <aop:pointcut id="diyPointcut" expression="execution(* com.zz.service.impl.UserServiceImpl.delete(..))"/>-->
+<!--        <aop:advisor advice-ref="beforeLog" pointcut-ref="diyPointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="diyPointcut"/>-->
+<!--    </aop:config>-->
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/mybatis"></property>
+        <property name="username" value="root"></property>
+        <property name="password" value="123456"></property>
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zz.mapper"/>
+    </bean>
+
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <tx:method name="*"/>
+        </tx:attributes>
+    </tx:advice>
+
+    <aop:config>
+        <aop:pointcut id="diyPointcut" expression="execution(* com.zz.service.impl.UserServiceImpl.delete(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="diyPointcut"/>
+    </aop:config>
+
+    <tx:annotation-driven/>
+
+
+
+</beans>

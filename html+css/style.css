@@ -1,0 +1,53 @@
+div{
+ height:50px;
+    width:50px;
+}
+
+.div1{
+   
+    background-color:brown;
+}
+
+.div2{
+    background-color:rgb(12, 135, 53);
+}
+
+#main{
+    background-color: aqua;
+}
+
+table{
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table td{
+    border: 1px solid;
+}
+
+.nv{
+    list-style: none;
+}
+
+.nv li{
+    float: left;
+    background-color: antiquewhite;
+    padding: 5px 10px;
+    cursor: pointer;
+    color:white;
+    border-right: 1px solid burlywood;
+}
+
+.nv li:hover{
+    background-color: burlywood;
+    color: blue;
+}
+
+.nv::after{
+    content: '';
+    height: 0;
+    line-height: 0;
+    display: block;
+    visibility: hidden;
+    clear: both;
+}
