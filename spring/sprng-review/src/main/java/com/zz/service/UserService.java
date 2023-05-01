@@ -6,6 +6,8 @@ package com.zz.service;
  */
 public interface UserService {
 
-    public void save();
+     void save();
+
+    void show();
 
 }

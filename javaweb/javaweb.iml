@@ -3,7 +3,37 @@
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
     <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/ajax-demo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/ajax-demo/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/ajax-demo/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/brand-demo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/brand-demo/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/brand-demo/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/cookie-demo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/cookie-demo/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/cookie-demo/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/filter-demo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/filter-demo/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/filter-demo/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/jsp_demo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/jsp_demo/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/jsp_demo/src/test" isTestSource="true" />
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tomcat_demo1/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tomcat_demo1/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/tomcat_demo2/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/tomcat_demo2/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/tomcat_demo2/src/test" isTestSource="true" />
+      <sourceFolder url="file://$MODULE_DIR$/web_demo/src" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/web_demo/src/main/resources" type="java-resource" />
+      <sourceFolder url="file://$MODULE_DIR$/web_demo/src/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/ajax-demo/target" />
+      <excludeFolder url="file://$MODULE_DIR$/brand-demo/target" />
+      <excludeFolder url="file://$MODULE_DIR$/cookie-demo/target" />
+      <excludeFolder url="file://$MODULE_DIR$/filter-demo/target" />
+      <excludeFolder url="file://$MODULE_DIR$/jsp_demo/target" />
+      <excludeFolder url="file://$MODULE_DIR$/tomcat_demo2/target" />
+      <excludeFolder url="file://$MODULE_DIR$/web_demo/target" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

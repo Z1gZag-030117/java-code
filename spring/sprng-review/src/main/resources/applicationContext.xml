@@ -1,10 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <context:property-placeholder location="jdbc.properties"/>
 
 
+    <bean class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
 
-    <bean id="userService" class="com.zz.service.impl.UserServiceImpl"></bean>
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.zz.mapper"/>
+    </bean>
+
+
+<!--    <bean id="userService" class="com.zz.service.impl.UserServiceImpl"></bean>-->
+
+<!--    <bean id="userService" class="com.zz.service.impl.UserServiceImpl">-->
+<!--        <property name="userDao" ref="userDao"/>-->
+<!--    </bean>-->
+
+    <bean id="userService" class="com.zz.service.impl.UserServiceImpl">
+        <property name="userMapper" ref="userMapper"/>
+    </bean>
+
+<!--    <bean id="userDao" class="com.zz.dao.impl.UserDaoImpl" ></bean>-->
+
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${jdbc.Driver}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+
+<!--    <bean id="clazz" class="java.lang.Class" factory-method="forName">-->
+<!--        <constructor-arg name="className" value="com.mysql.jdbc.Driver"/>-->
+<!--    </bean>-->
+
+<!--    <bean id="connection" class="java.sql.DriverManager" factory-method="getConnection" scope="prototype">-->
+<!--        <constructor-arg name="url" value="jdbc:mysql://localhost:3306/mybatis"/>-->
+<!--        <constructor-arg name="user" value="root"/>-->
+<!--        <constructor-arg name="password" value="123456"/>-->
+<!--    </bean>-->
+
+<!--    <bean class="com.zz.processor.MyBeanFactoryPostProcessor" ></bean>-->
+
+<!--    <bean class="com.zz.processor.MyBeanDefinitionRegistryPostProcessor"></bean>-->
+
+<!--    <bean class="com.zz.processor.MyBeanPostProcessor"></bean>-->
+
 
 </beans>
