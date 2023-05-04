@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+    <bean id="userService" class="com.zz.service.impl.UserServiceImpl"/>
+    <bean id="myAdvice" class="com.zz.advice.MyAdvice"/>
+<!--    <bean class="com.zz.processor.MockAopBeanPostProcessor"/>-->
+
+    <!--   aop配置-->
+    <aop:config>
+        <!--        配置切点表达式  指定哪些方法被增强-->
+        <aop:pointcut id="myPointcut" expression="execution(void com.zz.service.impl.UserServiceImpl.show1())"/>
+        <aop:pointcut id="myPointcut2" expression="execution(void com.zz.service.impl.UserServiceImpl.show2())"/>
+<!--        配置织入  那些切点和那些通知进行结合-->
+        <aop:aspect ref="myAdvice">
+            <aop:before method="beforeAdvice" pointcut-ref="myPointcut"/>
+            <aop:after method="afterAdvice" pointcut-ref="myPointcut2"/>
+<!--            <aop:after method="afterAdvice" pointcut-ref="myPointcut"/>-->
+        </aop:aspect>
+    </aop:config>
+
+</beans>

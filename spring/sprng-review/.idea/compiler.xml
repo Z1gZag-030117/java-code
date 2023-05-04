@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="sprng-review" />
+        <module name="spring-aop-review" />
       </profile>
     </annotationProcessing>
   </component>
