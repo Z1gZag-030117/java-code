@@ -2,6 +2,8 @@ import com.zz.service.UserService;
 import org.junit.Test;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import static java.lang.Math.sqrt;
+
 /**
  * @author 朱喆
  * @version 1.0
@@ -9,7 +11,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 public class AopTest {
 
     @Test
-    public void test(){
+    public void test() {
         ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
         UserService userService = context.getBean(UserService.class);
         userService.show1();

@@ -18,7 +18,6 @@ public class LoginServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-
         String remember = request.getParameter("remember");
 
         User user = service.login(username, password);
