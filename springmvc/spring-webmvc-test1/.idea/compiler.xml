@@ -8,6 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="spring-webmvc-test1" />
         <module name="spring-webmvc-test2" />
+        <module name="springmvc-annotation" />
       </profile>
     </annotationProcessing>
   </component>
